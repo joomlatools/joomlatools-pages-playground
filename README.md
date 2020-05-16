@@ -6,4 +6,9 @@ Just visit /hello-world in the gitpod browser, to see your first Joomlatools-pag
 
 Watch the terminal output below, and when you see `A service is available on port 8080` click `Open Preview` or `Open Browser`
 
+*Note* The first time your build your gitpod repo, the docker images have to built from scratch... Subsequent times you launch the same gitpod from your workspace area:
+https://gitpod.io/workspaces/
+
+Will be significantly faster.
+
 Happy coding!
