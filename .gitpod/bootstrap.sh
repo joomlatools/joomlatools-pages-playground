@@ -20,6 +20,6 @@ if [[ -e $GITPOD_REPO_ROOT/.gitpod/composer.json ]]; then
   composer update --working-dir=$GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION} --ignore-platform-reqs
 fi
 
-cp $GITPOD_REPO_ROOT/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}/joomlatools-pages
+cp -R $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}/joomlatools-pages
 
 apachectl start
