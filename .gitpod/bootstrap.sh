@@ -22,4 +22,7 @@ fi
 
 cp -R $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}/joomlatools-pages
 
+echo "* Setting home page to pages"
+mysql -uroot sites_joomla.${JOOMLA_VERSION} < $GITPOD_REPO_ROOT/.gitpod/page_menu_link.sql
+
 apachectl start

@@ -3,3 +3,7 @@
 A super simple way to test out the brilliant new tool Joomlatools-pages from a gitpod repo containing a Joomla installation.
 
 Just visit /hello-world in the gitpod browser, to see your first Joomlatools-page.
+
+Watch the terminal output below, and when you see `A service is available on port 8080` click `Open Preview` or `Open Browser`
+
+Happy coding!
