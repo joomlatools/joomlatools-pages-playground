@@ -14,7 +14,6 @@ tasks:
   - name: Terminal
     command: |
       clear
-      $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh
       echo ""
       echo "Commands you can try:"
       echo " * apachectl stop"
