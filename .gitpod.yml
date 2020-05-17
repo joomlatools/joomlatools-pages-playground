@@ -6,8 +6,7 @@ ports:
   - port: 3306
     onOpen: ignore
 tasks:
-  - init: workspace creation
-        command:  $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh
+  - init: $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh
   - name: Apache
     command: |
       apachectl start
