@@ -7,6 +7,8 @@ ports:
     onOpen: ignore
 tasks:
   - init: $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh
+  - before: chmod +x $GITPOD_REPO_ROOT/.gitpod/regenerate_db.sh \
+      $GITPOD_REPO_ROOT/.gitpod/regenerate_db.sh
   - name: Apache
     command: |
       apachectl start
