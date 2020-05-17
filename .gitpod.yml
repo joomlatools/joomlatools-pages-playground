@@ -14,6 +14,7 @@ tasks:
   - name: Terminal
     command: |
       clear
+      chmod +x $GITPOD_REPO_ROOT/.gitpod/regenerate_db.sh
       $GITPOD_REPO_ROOT/.gitpod/regenerate_db.sh
       echo ""
       echo "Commands you can try:"
