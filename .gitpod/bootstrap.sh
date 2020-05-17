@@ -8,7 +8,8 @@ export PATH=/home/gitpod/.composer/vendor/bin/:$PATH
 
 joomla plugin:install joomlatools/console-joomlatools:dev-master
 
-if [[ -d /workspacejoomlatools-framework-files ]]; then
+if [[ -d $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}  ]]; then
+
   joomla database:install joomla.${JOOMLA_VERSION} --www=$GITPOD_REPO_ROOT --drop
 
   apachectl  start
@@ -32,3 +33,5 @@ cp -R $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JO
 
 echo "* Setting home page to pages"
 mysql -uroot sites_joomla.${JOOMLA_VERSION} < $GITPOD_REPO_ROOT/.gitpod/page_menu_link.sql
+
+apachectl start
