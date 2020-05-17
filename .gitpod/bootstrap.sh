@@ -10,7 +10,7 @@ joomla plugin:install joomlatools/console-joomlatools:dev-master
 
 if [[ -d $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}  ]]; then
 
-  joomla database:install joomla.${JOOMLA_VERSION} --www=$GITPOD_REPO_ROOT --drop
+  joomla database:install joomla.${JOOMLA_VERSION} --www=$GITPOD_REPO_ROOT --drop  --mysql-login=root:
 
   apachectl  start
 
