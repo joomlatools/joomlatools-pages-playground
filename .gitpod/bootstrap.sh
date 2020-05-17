@@ -20,7 +20,7 @@ if [[ -e $GITPOD_REPO_ROOT/.gitpod/composer.json ]]; then
   composer update --working-dir=$GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION} --ignore-platform-reqs
 fi
 
-ln -s $GITPOD_REPO_ROOT/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}/joomlatools-pages
+ln -s $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}/joomlatools-pages
 
 echo "* Setting home page to pages"
 mysql -uroot sites_joomla.${JOOMLA_VERSION} < $GITPOD_REPO_ROOT/.gitpod/page_menu_link.sql
