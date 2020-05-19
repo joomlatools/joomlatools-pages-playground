@@ -8,6 +8,15 @@ export PATH=/home/gitpod/.composer/vendor/bin/:$PATH
 
 joomla plugin:install joomlatools/console-joomlatools:dev-master
 
+if [[ -d $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}  ]]; then
+
+  joomla database:install joomla.${JOOMLA_VERSION} --www=$GITPOD_REPO_ROOT --drop  --mysql-login=root:
+
+  apachectl  start
+
+  exit 0
+fi
+
 echo "* Create a new Joomla site"
 
 joomla site:create joomla.${JOOMLA_VERSION} --disable-ssl --mysql-login=root: --www=$GITPOD_REPO_ROOT/ --release=${JOOMLA_VERSION}
