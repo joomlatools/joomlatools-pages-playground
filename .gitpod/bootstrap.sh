@@ -2,6 +2,14 @@
 
 set -e
 
+#Ensure that we can upgrade insecure requests via the apache conf
+ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+
+if [ -d "$GITPOD_REPO_ROOT/joomla" ]; then
+    apachectl start
+    exit 0
+fi;
+
 #load up user predefine variables
 source $GITPOD_REPO_ROOT/.gitpod/config.sh
 
@@ -59,8 +67,3 @@ fi;
 
 echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
 cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
-
-#Ensure that we can upgrade insecure requests via the apache conf
-ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
-
-apachectl start
