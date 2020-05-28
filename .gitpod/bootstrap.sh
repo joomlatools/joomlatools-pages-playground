@@ -54,7 +54,7 @@ if [ -n "$composer" ]; then
 fi
 
 echo "* Installing sample joomlatools-pages";
-cp -R $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla.${JOOMLA_VERSION}/joomlatools-pages
+cp -R $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla/joomlatools-pages
 
 #Ensure that we can upgrade insecure requests via the apache conf
 ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
