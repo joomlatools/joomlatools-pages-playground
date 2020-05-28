@@ -67,3 +67,5 @@ fi;
 
 echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
 cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
+
+apachectl start
