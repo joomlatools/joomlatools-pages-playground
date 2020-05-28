@@ -41,6 +41,13 @@ fi;
 
 joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
+if [ -n "$composer" ]; then
+
+  echo "* Installing user defined composer requirements"
+
+  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs > /dev/null
+fi
+
 if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
 
   echo "* Platform detected, proceed to configure"
@@ -53,13 +60,6 @@ if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
 
   sed -i 's/1/0/g' $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php
 fi;
-
-if [ -n "$composer" ]; then
-
-  echo "* Installing user defined composer requirements"
-
-  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs > /dev/null
-fi
 
 if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
   mysql sites_joomla < $GITPOD_REPO_ROOT/.gitpod/migrations.sql
