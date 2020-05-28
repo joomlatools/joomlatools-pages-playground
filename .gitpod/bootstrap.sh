@@ -58,7 +58,7 @@ if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ]; then
 fi;
 
 echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
-cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
+cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
 
 #Ensure that we can upgrade insecure requests via the apache conf
 ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
