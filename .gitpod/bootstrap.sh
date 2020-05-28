@@ -3,7 +3,7 @@
 set -e
 
 #Ensure that we can upgrade insecure requests via the apache conf
-ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+ln -sfn /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 
 if [ -d "$GITPOD_REPO_ROOT/joomla" ]; then
     apachectl start
