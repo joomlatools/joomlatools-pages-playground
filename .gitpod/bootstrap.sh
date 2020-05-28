@@ -57,8 +57,8 @@ if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ]; then
   mysql sites_joomla < $GITPOD_REPO_ROOT/.gitpod/migrations.sql
 fi;
 
-echo "* Installing sample joomlatools-pages";
-cp -R $GITPOD_REPO_ROOT/.gitpod/joomlatools-pages  $GITPOD_REPO_ROOT/joomla/joomlatools-pages
+echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
+cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
 
 #Ensure that we can upgrade insecure requests via the apache conf
 ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
