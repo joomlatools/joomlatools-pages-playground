@@ -59,6 +59,9 @@ if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
   cd "$GITPOD_REPO_ROOT/joomla/" && php vendor/bin/phinx migrate;
 
   sed -i 's/1/0/g' $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php
+
+  cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/configuration-pages.php
+
 fi;
 
 if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
