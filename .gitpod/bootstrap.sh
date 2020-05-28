@@ -61,7 +61,7 @@ if [ -n "$composer" ]; then
   composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs > /dev/null
 fi
 
-if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ]; then
+if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
   mysql sites_joomla < $GITPOD_REPO_ROOT/.gitpod/migrations.sql
 fi;
 
