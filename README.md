@@ -1,8 +1,21 @@
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/joomlatools/joomlatools-gitpod)
 # Joomlatools Gitpod
-A super simple way to test out different versions Joomla, straight from the browser.
+A super simple way to test drive our latest component [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages), straight from the browser.
 
-### What is Joomlatools Gitpod?
+You can either test drive [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages) with in a native [Joomla](https://github.com/joomla/joomla-cms) environment, or you can test drive this new component with our [Joomlatools-platform](https://github.com/joomlatools/joomlatools-platform).
+
+### What is Joomlatools pages playground?
+
+[Joomlatools-pages-playground](https://github.com/joomlatools/joomlatools-pages-playground) is a complete [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) and in this instance we have: 
+
+* A online cloud source editor [Theia](https://theia-ide.org/)
+* A LAMP server (Linux, Apache, MySql, PHP)
+* A preconfigured Joomla/ Joomlatools-platform site
+* Installed sample Joomlatools-pages ready to edit 
+
+The actual IDE is provided by [Gitpod](https://www.gitpod.io) we've just extended their great work to showcase [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages)
+
+This means that when you launch your Gitpod workspace, you can edit our sample [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages) in the cloud and see  the results in your browser straight away.
 
 ## Requirements
 
@@ -29,7 +42,7 @@ We've also made great efforts to make this repository configurable to your needs
 
 * By providing a `joomla` variable (valid version number), this specific version will be downloaded and installed. The default with no `joomla` variable means the latest Joomla! version will be installed 
 * By providing a `repo` variable you can even install custom Joomla! instance. The repo variable should point to an existing Joomla github repo and use the https protocol. 
-Further if you create `.gitpod/migrations.sql` dump you can even migrate a supporting database for this custom Joomla! site 
+Further if you create `.gitpod/install.sql` dump you can even migrate a supporting database for this custom Joomla! site 
 * By providing a `composer` variable you can specify which composer packages you would like added to the default Joomla! site
 
 ## Contributing
