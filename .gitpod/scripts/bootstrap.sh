@@ -11,7 +11,7 @@ if [ -d "$GITPOD_REPO_ROOT/joomla" ]; then
 fi;
 
 #load up user predefine variables
-source $GITPOD_REPO_ROOT/.gitpod/config.sh
+source $GITPOD_REPO_ROOT/.gitpod/config/config.sh
 
 echo "* About to set up the gitpod area"
 
@@ -52,7 +52,7 @@ if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
 
   echo "* Platform detected, proceed to configure"
 
-  cp "$GITPOD_REPO_ROOT/.gitpod/platform_migrations.php" "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v1.1.0/20200521123445_platform_migrations.php"
+  cp "$GITPOD_REPO_ROOT/.gitpod/migrations/platform_migrations.php" "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v1.1.0/20200521123445_platform_migrations.php"
 
   rm -Rf "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v2.0.0/"
 
@@ -60,15 +60,15 @@ if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
 
   sed -i 's/1/0/g' $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php
 
-  cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/configuration-pages.php
+  cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/configuration-pages.php
 
 fi;
 
-if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
-  mysql sites_joomla < $GITPOD_REPO_ROOT/.gitpod/migrations.sql
+if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
+  mysql sites_joomla < $GITPOD_REPO_ROOT/.gitpod/migrations/migrations.sql
 fi;
 
 echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
-cp $GITPOD_REPO_ROOT/.gitpod/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
+cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/configuration-pages.php
 
 apachectl start

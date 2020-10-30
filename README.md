@@ -38,7 +38,7 @@ We've also made great efforts to make this repository configurable to your needs
 
 ## Configuring
 
-`.gitpod/config.sh` is where you are able to configure how this repository will operate.
+`.gitpod/config/config.sh` is where you are able to configure how this repository will operate.
 
 * By providing a `joomla` variable (valid version number), this specific version will be downloaded and installed. The default with no `joomla` variable means the latest Joomla! version will be installed 
 * By providing a `repo` variable you can even install custom Joomla! instance. The repo variable should point to an existing Joomla github repo and use the https protocol. 

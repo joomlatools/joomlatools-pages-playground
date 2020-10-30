@@ -8,10 +8,10 @@ ENV JOOMLA_VERSION="3.8.9"
 USER root
 
 # Configure Apache2
-COPY apache.conf /etc/apache2/apache2.conf
+COPY apache/apache.conf /etc/apache2/apache2.conf
 
 # Configure PHP
-COPY  phplimits.ini /etc/php/7.4/apache2/conf.d/phplimits.ini
+COPY  apache/phplimits.ini /etc/php/7.4/apache2/conf.d/phplimits.ini
 
 # Install extra PHP extensions
 RUN apt-get update \
