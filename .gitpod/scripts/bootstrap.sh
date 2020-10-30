@@ -62,6 +62,7 @@ if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
 
   cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/configuration-pages.php
 
+  apachectl restart
 fi;
 
 if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
