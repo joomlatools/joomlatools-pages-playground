@@ -13,7 +13,7 @@ tasks:
   - name: Terminal
     command: |
       clear
-      $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh
+      $GITPOD_REPO_ROOT/.gitpod/scripts/bootstrap.sh
       echo ""
       echo "Commands you can try:"
       echo " * apachectl stop"
@@ -21,4 +21,6 @@ tasks:
       echo " * gp open /var/log/apache2/access.log"
       echo " * gp open /var/log/apache2/error.log"
       echo " * gp preview $(gp url 8080)"
-      echo " * sh .gitpod/mysql-restart.sh"
+      echo " * sh .gitpod/scripts/mysql-restart.sh"
+      echo " * joomla site:delete joomla --www=$GITPOD_REPO_ROOT --mysql-login=root:"
+      echo " * .gitpod/scripts/bootstrap.sh"

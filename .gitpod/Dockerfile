@@ -8,7 +8,10 @@ ENV JOOMLA_VERSION="3.8.9"
 USER root
 
 # Configure Apache2
-COPY apache.conf /etc/apache2/apache2.conf
+COPY apache/apache.conf /etc/apache2/apache2.conf
+
+# Configure PHP
+COPY  apache/phplimits.ini /etc/php/7.4/apache2/conf.d/phplimits.ini
 
 # Install extra PHP extensions
 RUN apt-get update \
@@ -23,6 +26,7 @@ RUN chown -R gitpod:gitpod /var/www/
 RUN chown -R gitpod:gitpod /var/www/
 RUN chown -R gitpod:gitpod /etc/apache2/
 RUN chown -R gitpod:gitpod /etc/mysql/
+RUN chown -R gitpod:gitpod /etc/php/7.4
 
 USER gitpod
 
@@ -31,5 +35,3 @@ RUN composer global require joomlatools/console --no-interaction
 
 # Make sure PATH is always updated with PATH to Composer package binaries
 RUN echo 'export PATH=/home/gitpod/.composer/vendor/bin/:$PATH' >> ~/.bashrc
-
-RUN echo "hello world"
