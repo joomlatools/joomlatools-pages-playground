@@ -34,6 +34,8 @@ if "$standalone" = true; then
   echo "* create our entry point"
   cp $GITPOD_REPO_ROOT/.gitpod/config/index-entrypoint.php $GITPOD_REPO_ROOT/standalone/index.php
 
+  apachectl start
+
 exit 0
 fi
 
