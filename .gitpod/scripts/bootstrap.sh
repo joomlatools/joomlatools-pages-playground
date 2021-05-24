@@ -2,6 +2,13 @@
 
 set -e
 
+if "$standalone" = true; then
+  echo "time to go solo";
+
+  exit 0
+fi
+
+exit 0
 #Ensure that we can upgrade insecure requests via the apache conf
 ln -sfn /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 
@@ -12,6 +19,9 @@ fi;
 
 #load up user predefine variables
 source $GITPOD_REPO_ROOT/.gitpod/config/config.sh
+
+
+
 
 echo "* About to set up the gitpod area"
 
