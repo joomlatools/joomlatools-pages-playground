@@ -2,16 +2,10 @@
 
 set -e
 
-if "$standalone" = true; then
-  echo "time to go solo";
-
-  exit 0
-fi
-
-exit 0
 #Ensure that we can upgrade insecure requests via the apache conf
 ln -sfn /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 
+## @TODO NEED OR SWITCH HERE FOR STANDALONE
 if [ -d "$GITPOD_REPO_ROOT/joomla" ]; then
     apachectl start
     exit 0
@@ -20,12 +14,22 @@ fi;
 #load up user predefine variables
 source $GITPOD_REPO_ROOT/.gitpod/config/config.sh
 
-
-
-
 echo "* About to set up the gitpod area"
 
 export PATH=/home/gitpod/.composer/vendor/bin/:$PATH
+
+if "$standalone" = true; then
+  mkdir -p  ${GITPOD_REPO_ROOT}/standalone;
+
+  composer install $composer --working-dir=$GITPOD_REPO_ROOT/standalone --ignore-platform-reqs
+
+  echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
+  cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/standalone/configuration-pages.php
+
+apachectl start
+
+exit 0
+fi
 
 joomla plugin:install joomlatools/console-joomlatools:dev-master
 
