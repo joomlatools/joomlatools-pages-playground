@@ -53,7 +53,7 @@ if [ -n "$composer" ]; then
 
   echo "* Installing user defined composer requirements"
 
-  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs --prefer-source --no-interaction --no-dev -o > /dev/null
+  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs > /dev/null
 fi
 
 if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
