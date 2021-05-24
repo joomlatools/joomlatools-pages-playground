@@ -20,7 +20,10 @@ export PATH=/home/gitpod/.composer/vendor/bin/:$PATH
 if "$standalone" = true; then
   mkdir -p  ${GITPOD_REPO_ROOT}/standalone;
 
-  composer require $composer --working-dir=$GITPOD_REPO_ROOT/standalone --ignore-platform-reqs
+  echo "* create custom composer.json"
+  cp $GITPOD_REPO_ROOT/.gitpod/config/standalone-composer.json $GITPOD_REPO_ROOT/standalone/composer.json
+
+  composer install --working-dir=$GITPOD_REPO_ROOT/standalone --ignore-platform-reqs
 
   echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
   cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/standalone/configuration-pages.php

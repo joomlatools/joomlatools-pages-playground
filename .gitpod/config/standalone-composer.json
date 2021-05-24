@@ -1,0 +1,8 @@
+{
+  "require": {
+    "joomlatools/composer": "~1.2.0",
+    "joomlatools/framework": "dev-master#aac377b2c9eaa0c0760b4b7e05cce562bff06f8a as 3.5.0",
+    "joomlatools/pages": "dev-master"
+  },
+  "minimum-stability": "dev"
+}
