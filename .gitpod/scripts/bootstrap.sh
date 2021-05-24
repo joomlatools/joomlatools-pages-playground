@@ -39,6 +39,9 @@ if [ -e "$GITPOD_REPO_ROOT/.gitpod/install.sql" ]; then
   custom_install="--sql-dumps=$GITPOD_REPO_ROOT/.gitpod/install.sql";
 fi;
 
+#getting rate limits for joomla/backports/less-php use a modified composer.json
+cp $GITPOD_REPO_ROOT/.gitpod/config/composer.json $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/composer.json
+
 #wait for the database to ready
 while ! mysqladmin ping --silent; do
     sleep 1
