@@ -26,10 +26,10 @@ if "$standalone" = true; then
   cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/standalone/configuration-pages.php
 
   echo "* lets copy our base configuration"
-  cp $GITPOD_REPO_ROOT/.gitpod/config/pages/ $GITPOD_REPO_ROOT/standalone/config/
+  cp -R $GITPOD_REPO_ROOT/.gitpod/config/pages/ $GITPOD_REPO_ROOT/standalone/config/
 
   echo "* create our entry point"
-  cp $GITPOD_GITPOD_REPO_ROOT/.gitpod/config/index-entrypoint.php $GITPOD_REPO_ROOT/standalone/index.php
+  cp $GITPOD_REPO_ROOT/.gitpod/config/index-entrypoint.php $GITPOD_REPO_ROOT/standalone/index.php
 
 exit 0
 fi
