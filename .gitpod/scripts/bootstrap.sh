@@ -5,8 +5,8 @@ set -e
 #Ensure that we can upgrade insecure requests via the apache conf
 ln -sfn /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 
-if [ -d "$GITPOD_REPO_ROOT/joomla" ]; then
-    apachectl start
+if [ -d "$GITPOD_REPO_ROOT/joomla" ] || [ -d "$GITPOD_REPO_ROOT/standalone" ]; then
+    apachectl restart
     exit 0
 fi;
 
@@ -16,6 +16,28 @@ source $GITPOD_REPO_ROOT/.gitpod/config/config.sh
 echo "* About to set up the gitpod area"
 
 export PATH=/home/gitpod/.composer/vendor/bin/:$PATH
+
+if "$standalone" = true; then
+  mkdir -p  ${GITPOD_REPO_ROOT}/standalone;
+
+  echo "* create custom composer.json"
+  cp $GITPOD_REPO_ROOT/.gitpod/config/standalone-composer.json $GITPOD_REPO_ROOT/standalone/composer.json
+
+  composer install --working-dir=$GITPOD_REPO_ROOT/standalone --ignore-platform-reqs
+
+  echo "* Set the site to look for joomlatools-pages within the .gitpod folder"
+  cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/standalone/configuration-pages.php
+
+  echo "* lets copy our base configuration"
+  cp -R $GITPOD_REPO_ROOT/.gitpod/config/pages/ $GITPOD_REPO_ROOT/standalone/config/
+
+  echo "* create our entry point"
+  cp $GITPOD_REPO_ROOT/.gitpod/config/index-entrypoint.php $GITPOD_REPO_ROOT/standalone/index.php
+
+  apachectl start
+
+exit 0
+fi
 
 joomla plugin:install joomlatools/console-joomlatools:dev-master
 
