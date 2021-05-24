@@ -48,23 +48,6 @@ if [ -n "$composer" ]; then
   composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs > /dev/null
 fi
 
-if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
-
-  echo "* Platform detected, proceed to configure"
-
-  cp "$GITPOD_REPO_ROOT/.gitpod/migrations/platform_migrations.php" "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v1.1.0/20200521123445_platform_migrations.php"
-
-  rm -Rf "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v2.0.0/"
-
-  cd "$GITPOD_REPO_ROOT/joomla/" && php vendor/bin/phinx migrate;
-
-  sed -i 's/1/0/g' $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php
-
-  cp $GITPOD_REPO_ROOT/.gitpod/config/configuration-pages.php $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/configuration-pages.php
-
-  apachectl restart
-fi;
-
 if [ -e "$GITPOD_REPO_ROOT/.gitpod/migrations/migrations.sql" ] && [ ! -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
   mysql sites_joomla < $GITPOD_REPO_ROOT/.gitpod/migrations/migrations.sql
 fi;

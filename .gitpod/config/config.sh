@@ -1,3 +1,3 @@
-#joomla=3.8.9
-#repo=https://github.com/joomlatools/joomlatools-platform.git
+#joomla=3.9.26
+#repo=https://github.com/joomla/joomla-cms.git
 composer="joomlatools/pages"

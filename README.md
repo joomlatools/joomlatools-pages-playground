@@ -2,7 +2,7 @@
 # Joomlatools Gitpod
 A super simple way to test drive our latest component [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages), straight from the browser.
 
-You can either test drive [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages) with in a native [Joomla](https://github.com/joomla/joomla-cms) environment, or you can test drive this new component with our [Joomlatools-platform](https://github.com/joomlatools/joomlatools-platform).
+You can test drive [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages) with in a native [Joomla](https://github.com/joomla/joomla-cms) environment.
 
 ### What is Joomlatools pages playground?
 
@@ -10,7 +10,7 @@ You can either test drive [Joomlatools-pages](https://github.com/joomlatools/joo
 
 * A online cloud source editor [Theia](https://theia-ide.org/)
 * A LAMP server (Linux, Apache, MySql, PHP)
-* A preconfigured Joomla/ Joomlatools-platform site
+* A preconfigured Joomla
 * Installed sample Joomlatools-pages ready to edit 
 
 The actual IDE is provided by [Gitpod](https://www.gitpod.io) we've just extended their great work to showcase [Joomlatools-pages](https://github.com/joomlatools/joomlatools-pages)
