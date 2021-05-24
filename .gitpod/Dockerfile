@@ -36,4 +36,4 @@ RUN composer global require joomlatools/console --no-interaction
 # Make sure PATH is always updated with PATH to Composer package binaries
 RUN echo 'export PATH=/home/gitpod/.composer/vendor/bin/:$PATH' >> ~/.bashrc
 
-###regenerate
+##regenerate
